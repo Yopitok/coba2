@@ -1,0 +1,9 @@
+streamlit
+pdfplumber
+pandas
+matplotlib
+python-dotenv
+langchain
+langchain-groq
+chromadb
+sentence-transformers
