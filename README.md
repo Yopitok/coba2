@@ -33,9 +33,10 @@ CV Analyzer AI adalah aplikasi berbasis Streamlit dan Groq LLM yang memungkinkan
 
 Berikut tampilan aplikasi CV Analyzer AI:
 
-![CV Analyzer AI Screenshot](assets/screenshot.png)
 
----
+
+---![Screenshot 2025-05-14 113925](https://github.com/user-attachments/assets/5af3714b-3e0b-44de-a64a-7139aa2683c0)
+
 
 ## 📦 Cara Menjalankan
 
