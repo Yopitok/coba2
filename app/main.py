@@ -2,13 +2,11 @@ import streamlit as st
 import pdfplumber
 import pandas as pd
 import matplotlib.pyplot as plt
-from openai import OpenAI
+from groq import Groq  # Changed from OpenAI to Groq
 
 # Inisialisasi client Groq
-client = OpenAI(
-    api_key="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",
-    base_url="https://api.groq.com/openai/v1"
-)
+from groq import Groq
+client = Groq(api_key="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")  # Ganti dengan API key asli
 
 st.set_page_config(page_title="CV Analyzer AI", layout="wide")
 st.title("📄 CV Analyzer AI")
@@ -36,11 +34,12 @@ with tab2:
             with st.expander(f"{cv['filename']}"):
                 with st.spinner("Meringkas..."):
                     response = client.chat.completions.create(
-                        model="llama-3.3-70b-versatile",
+                        model="llama3-70b-8192",  # Changed to correct Groq model
                         messages=[
                             {"role": "system", "content": "Ringkas CV berikut ini dalam bahasa Indonesia, fokus pada pengalaman, keahlian, dan pencapaian utama."},
                             {"role": "user", "content": cv["text"]}
-                        ]
+                        ],
+                        temperature=0.3  # Added for more consistent results
                     )
                     summary = response.choices[0].message.content
                     st.write(summary)
@@ -55,11 +54,12 @@ with tab3:
             if st.button(f"Dapatkan Rekomendasi untuk {cv['filename']}"):
                 with st.spinner("AI sedang menganalisis..."):
                     response = client.chat.completions.create(
-                        model="llama-3.3-70b-versatile",
+                        model="llama3-70b-8192",  # Changed to correct Groq model
                         messages=[
                             {"role": "system", "content": "Kamu adalah HR profesional. Berikan rekomendasi dalam bahasa Indonesia terhadap CV ini."},
                             {"role": "user", "content": cv["text"]}
-                        ]
+                        ],
+                        temperature=0.5  # Added for balanced creativity
                     )
                     result = response.choices[0].message.content
                     st.success("✅ Rekomendasi:")
@@ -80,18 +80,19 @@ with tab4:
                     "Jelaskan alasanmu dalam bahasa Indonesia:\n\n" + cv_list_text
                 )
                 response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
+                    model="llama3-70b-8192",  # Changed to correct Groq model
                     messages=[
                         {"role": "system", "content": "Kamu adalah HR profesional yang diminta membandingkan beberapa CV."},
                         {"role": "user", "content": prompt}
-                    ]
+                    ],
+                    temperature=0.3  # Added for more factual comparison
                 )
                 comparison = response.choices[0].message.content
                 st.success("✅ Hasil Perbandingan:")
                 st.write(comparison)
     else:
         st.warning("⬅️ Silakan upload CV terlebih dahulu.")
-## TAB 5 - SKORING CV ##
+
 with tab5:
     st.header("📊 Visualisasi Skoring CV")
 
