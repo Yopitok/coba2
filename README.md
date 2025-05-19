@@ -1,59 +1,43 @@
-📄 CV Analyzer AI
+# 📄 CV Analyzer AI
 
-CV Analyzer AI adalah aplikasi analitik cerdas berbasis Streamlit yang memanfaatkan LLM Groq untuk mengevaluasi dan membandingkan CV secara otomatis. Aplikasi ini dirancang untuk HR profesional, career coach, maupun job seeker yang ingin mendapatkan insight objektif dan mendalam terhadap struktur serta isi CV.
+**CV Analyzer AI** adalah aplikasi analitik cerdas berbasis **Streamlit** yang memanfaatkan **LLM Groq** untuk mengevaluasi dan membandingkan CV secara otomatis. Aplikasi ini dirancang untuk **HR profesional**, **career coach**, maupun **job seeker** yang ingin mendapatkan *insight* objektif dan mendalam terhadap struktur serta isi CV.
 
-🚀 Fitur Unggulan
+---
 
-📄 Upload Beberapa CVUnggah dan analisis banyak CV sekaligus dalam satu antarmuka.
+## 🚀 Fitur Unggulan
 
-🔍 Ringkasan Otomatis oleh LLMCV diringkas dengan fokus pada pengalaman kerja, keahlian, dan pencapaian.
+* 📄 **Upload Beberapa CV**
+  Unggah dan analisis banyak CV sekaligus dalam satu antarmuka.
 
-🤖 Rekomendasi PeningkatanLLM memberikan saran personalisasi untuk perbaikan setiap CV berdasarkan best practice industri.
+* 🔍 **Ringkasan Otomatis oleh LLM**
+  CV diringkas dengan fokus pada pengalaman kerja, keahlian, dan pencapaian.
 
-⚖️ Perbandingan Antar-CVBandingkan kekuatan dan kelemahan dari berbagai kandidat terhadap suatu role.
+* 🤖 **Rekomendasi Peningkatan**
+  LLM memberikan saran personalisasi untuk perbaikan setiap CV berdasarkan *best practice* industri.
 
-📊 Skoring CVPenilaian objektif berdasarkan kriteria: pengalaman, pendidikan, keahlian teknis, prestasi, dan relevansi terhadap posisi.
+* ⚖️ **Perbandingan Antar-CV**
+  Bandingkan kekuatan dan kelemahan dari berbagai kandidat terhadap suatu role.
 
-🛠️ Arsitektur & Teknologi
+* 📊 **Skoring CV**
+  Penilaian objektif berdasarkan kriteria: pengalaman, pendidikan, keahlian teknis, prestasi, dan relevansi terhadap posisi.
 
-Layer
+---
 
-Komponen
+## 🛠️ Arsitektur & Teknologi
 
-Penjelasan
+| Layer            | Komponen                  | Penjelasan                                                 |
+| ---------------- | ------------------------- | ---------------------------------------------------------- |
+| **Frontend**     | Streamlit                 | Antarmuka web responsif berbasis Python                    |
+| **LLM Core**     | Groq API (LLaMA 3 70B)    | Pemrosesan natural language untuk meringkas dan menilai CV |
+| **PDF Parser**   | `pdfplumber`              | Ekstraksi teks dari dokumen PDF                            |
+| **Visualisasi**  | `matplotlib`, `pandas`    | Histogram skor dan radar chart perbandingan kategori       |
+| **Modular Code** | `core/`, `app/`, `utils/` | Struktur kode modular dan mudah untuk dikembangkan         |
 
-Frontend
+---
 
-Streamlit
+## 🗂️ Struktur Folder
 
-Antarmuka web responsif berbasis Python
-
-LLM Core
-
-Groq API (LLaMA 3 70B)
-
-Pemrosesan natural language untuk meringkas dan menilai CV
-
-PDF Parser
-
-pdfplumber
-
-Ekstraksi teks dari dokumen PDF
-
-Visualisasi
-
-matplotlib, pandas
-
-Histogram skor dan radar chart perbandingan kategori
-
-Modular Code
-
-core/, app/, utils/
-
-Struktur kode modular dan mudah untuk dikembangkan
-
-💂️ Struktur Folder
-
+```bash
 cv_analyzer_ai/
 │
 ├── app/
@@ -72,60 +56,82 @@ cv_analyzer_ai/
 ├── .env                       # API key Groq (gunakan .env lokal)
 ├── requirements.txt           # Daftar dependensi
 └── README.md                  # Dokumentasi proyek
+```
 
-🧪 Cara Menjalankan Aplikasi
+---
 
-1. Clone Repositori
+## 🧪 Cara Menjalankan Aplikasi
 
+### 1. Clone Repositori
+
+```bash
 git clone https://github.com/Yopitok/cv-analyzer-ai.git
 cd cv-analyzer-ai
+```
 
-2. Install Dependensi
+### 2. Install Dependensi
 
 Disarankan menggunakan virtual environment:
 
+```bash
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+```
 
-3. Tambahkan API Key Groq
+### 3. Tambahkan API Key Groq
 
-Buat file .env di root project:
+Buat file `.env` di root project:
 
+```env
 GROQ_API_KEY=your_groq_api_key_here
+```
 
-4. Jalankan Aplikasi
+### 4. Jalankan Aplikasi
 
+```bash
 streamlit run main.py
+```
 
-📸 Tampilan Aplikasi
+---
+
+## 📸 Tampilan Aplikasi
 
 Berikut adalah tampilan antarmuka pengguna (UI):
 
-❓ FAQ
+<img src="https://github.com/user-attachments/assets/5af3714b-3e0b-44de-a64a-7139aa2683c0" width="600">
 
-Apakah bisa untuk satu CV saja?Ya, aplikasi akan tetap berjalan meskipun hanya satu CV yang diunggah.
+---
 
-Bahasa yang digunakan?Bahasa Indonesia digunakan untuk interaksi AI dan hasil analisis.
+## ❓ FAQ
 
-Model AI apa yang digunakan?LLaMA3 70B dari Groq — cepat, akurat, dan hemat biaya.
+* **Apakah bisa untuk satu CV saja?**
+  Ya, aplikasi akan tetap berjalan meskipun hanya satu CV yang diunggah.
 
-🧠 Ide Pengembangan Lanjutan
+* **Bahasa yang digunakan?**
+  Bahasa Indonesia digunakan untuk interaksi AI dan hasil analisis.
 
-Integrasi ChromaDB + LangChain untuk pencarian semantik
+* **Model AI apa yang digunakan?**
+  LLaMA3 70B dari Groq — cepat, akurat, dan hemat biaya.
 
-Visualisasi dengan Plotly RadarChart
+---
 
-Dukungan bahasa Inggris otomatis
+## 🧠 Ide Pengembangan Lanjutan
 
-Upload Job Description untuk perbandingan langsung dengan CV
+* Integrasi **ChromaDB + LangChain** untuk pencarian semantik
+* Visualisasi dengan **Plotly RadarChart**
+* Dukungan bahasa Inggris otomatis
+* Upload **Job Description** untuk perbandingan langsung dengan CV
 
-👨‍💻 Kontributor
+---
 
-@Yopitok — Creator & Developer
+## 👨‍💼 Kontributor
 
-Powered by Groq & Streamlit
+* [@Yopitok](https://github.com/Yopitok) — Creator & Developer
+* Powered by [Groq](https://groq.com/) & [Streamlit](https://streamlit.io/)
 
-📄 Lisensi
+---
+
+## 📄 Lisensi
 
 MIT License — bebas digunakan dan dimodifikasi untuk kebutuhan pribadi atau komersial.
