@@ -6,7 +6,7 @@ from groq import Groq  # Changed from OpenAI to Groq
 
 # Inisialisasi client Groq
 from groq import Groq
-client = Groq(api_key="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")  # Ganti dengan API key asli
+client = Groq(api_key="API KEY MU SENDIRI")  # Ganti dengan API key asli
 
 st.set_page_config(page_title="CV Analyzer AI", layout="wide")
 st.title("📄 CV Analyzer AI")
